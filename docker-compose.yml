@@ -1,0 +1,24 @@
+version: '3'
+services:
+    postgres-db:
+        image: postgres
+        volumes:
+            - ./postgres/data:/data
+        ports:
+            - 4818:5432
+        environment:
+            POSTGRES_PASSWORD: "chat"
+            POSTGRES_USER: "snap"
+            POSTGRES_DB: "snapdata"
+            PGDATA: /data
+    grafana:
+      image: grafana/grafana 
+      ports:
+        - 3000:3000
+      links:
+        - postgres-db:db.dkr
+      volumes:
+        - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage:

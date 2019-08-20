@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+postgres/
+grafana/
+add.txt
+img.txt
+imgs.html
+
 # C extensions
 *.so
 
